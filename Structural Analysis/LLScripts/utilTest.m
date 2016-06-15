@@ -11,17 +11,18 @@ clc;
 % [model, coords] = randomGraph(8,5);
 % [model, name, coords] = g001();
 % model = g002();
-% [model, coords] = g003();
-model = g004();
+% model = g003();
+% model = g004();
 % [model, name, coords] = g005();
 % [model, coords] = g006();
 % [model, name, coords] = g007();
 % [model, name, coords] = g007a();
-% [model, coords] = g008();
+% model = g008();
 % [model, name, coords] = g009a();
 % [model, name, coords] = g010();
 % [model, name, coords] = g011();
-% [model, name, coords] = g012();
+% model = g012();
+model = g012a();
 % [model, name, coords] = g013();
 % [model, name, coords] = g014(); if exist('g014_costlist.mat') load g014_costlist.mat; end
 % model = g015();
@@ -98,6 +99,7 @@ mygraph.plotDot();
 
 %% Get over-constrained part
 
+% graphOver = mygraph.copy();
 graphOver = mygraph.getOver();
 % Create the incidence matrix
 graphOver.createAdjacency();
@@ -114,7 +116,7 @@ graphOver.liusm.Lint();
 % figure();
 % graphOver.liusm.PlotModel();
 % set(gca,'YTickLabel',graphOver.equationAliasArray);
-%
+
 % figure();
 % graphOver.plotDM();
 
@@ -137,9 +139,9 @@ fprintf('Building residual signature array:\n');
 [signatures, generator_id] = graphOver.getResidualSignatures();
 
 %% Select causality
-graphOver.causality = 'Realistic'; % None, Integral, Differential, Mixed, Realistic
+graphOver.causality = 'None'; % None, Integral, Differential, Mixed, Realistic
 
-return
+% return
 
 %% Create new, resulting graph
 graphMTES = graphOver.copy();
@@ -158,12 +160,12 @@ graphMTES.liusm.Lint();
 % figure();
 % graphMTES.plotSparse()
 
-figure();
-graphMTES.liusm.PlotModel();
-set(gca,'YTickLabel',graphMTES.equationAliasArray);
-
-figure();
-graphMTES.plotDM();
+% figure();
+% graphMTES.liusm.PlotModel();
+% set(gca,'YTickLabel',graphMTES.equationAliasArray);
+% 
+% figure();
+% graphMTES.plotDM();
 
 %% Find MSOs involving faults
 
@@ -200,7 +202,7 @@ for indexMTES = 1:length(MTESs)
         SMjustIds = graphMTES.equationIdArray(SMjust);
 
         % Find a valid matching for that M0
-        Mcurr = graphMTES.matchValid(SMjustIds);
+        [Mcurr] = graphMTES.matchValid(SMjustIds);
         
         % TODO: compare weights from all MCurrs
         if ~isempty(Mcurr)
@@ -229,6 +231,8 @@ validMatchings = zeros(1,length(Mvalid));
 for i = 1:length(Mvalid)
     validMatchings(i) = graphMTES.validateMatching(Mvalid{i}{2:end});
 end
+
+return
 
 %% Check if different MSOs match the same equation is different ways
 % In general they do

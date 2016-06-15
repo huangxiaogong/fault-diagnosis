@@ -33,7 +33,7 @@ for i=1:gh.numVars
         shape = 'Mcircle';
     end
     if gh.variables(i).isMatched
-        % No operation
+        color = 'lightblue';
     end
     nodeDef = [nodeDef sprintf('node [shape = %s, fillcolor = %s, style = filled, label="%s\n%d"]; %s;\n'...
         ,shape,color,gh.variableAliasArray{i},gh.variableIdArray(i),gh.variableAliasArray{i})];

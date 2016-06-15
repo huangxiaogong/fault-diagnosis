@@ -1,4 +1,4 @@
-function [ M, exitcode] = matchValid( gh, equIds, varIds )
+function [M,exitcode] = matchValid( gh, equIds, varIds )
 %MATCHVALID Summary of this function goes here
 %   Detailed explanation goes here
 % exitcode:  0 - No warning
@@ -6,6 +6,8 @@ function [ M, exitcode] = matchValid( gh, equIds, varIds )
 %           -2 - Differential edge in closed lopp
 %           -3 - No valid matching found in one of the KH components
 %            1 - Integral edge in closed loop
+
+debug = false;
 
 % Get the corresponding adjacency matrix
 [A, varIds, eqIndices, varIndices] = gh.getSubmodel(equIds);
@@ -58,7 +60,7 @@ for i=pivot
                     hasIntegral = true;
                 end
                 if gh.edges(edgeIndices(k)).isDerivative;
-                    %                             fprintf('*** Failure: Found differential edge in CL component\n');
+                    if debug fprintf('matchValid: Failure: Found differential edge in CL component\n'); end
                     hasDifferential = true;
                     break % This matching candidate is invalid, it includes a differential edge
                 end
@@ -69,6 +71,7 @@ for i=pivot
                 M(end+1) = {Mmurty(j,:)};
                 foundValid = true;
                 if hasIntegral
+                    if debug fprintf('matchValid: Found a valid matching\n'); end
                     exitcode = 1;
                 end
                 break
@@ -78,12 +81,14 @@ for i=pivot
         % Murty found no matching without a differential edge
         if hasDifferential
             exitcode = -2;
+            if debug fprintf('matchValid: Found no matching without a differential edge\n'); end
             M = {};
             return
         end
         % If Murty found no valid matching in this KH component
         if ~foundValid
             exitcode = -3;
+            if debug fprintf('matchValid: Found no valid matching\n'); end
             M = {};
             return
         end
