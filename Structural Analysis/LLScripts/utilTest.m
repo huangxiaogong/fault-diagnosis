@@ -22,9 +22,10 @@ clc;
 % [model, name, coords] = g010();
 % [model, name, coords] = g011();
 % model = g012();
-model = g012a();
+% model = g012a();
 % [model, name, coords] = g013();
-% [model, name, coords] = g014(); if exist('g014_costlist.mat') load g014_costlist.mat; end
+% model = g014(); if exist('g014_costlist.mat') load g014_costlist.mat; end
+model = g014a();
 % model = g015();
 
 % Create the graph object
@@ -39,7 +40,8 @@ end
 mygraph.readCostList(costList);
 
 % Create the simulation engine object to build the functions list
-simEngine = SimEngine(mygraph);
+mygraph.causality = 'Mixed'; % Set causality first in order to avoid requests for evaluations of non-invertible edges
+% simEngine = SimEngine(mygraph);
 % You can now discrad the SimEngine object and create another one based on
 % the matched GraphBipartite
 
@@ -139,7 +141,7 @@ fprintf('Building residual signature array:\n');
 [signatures, generator_id] = graphOver.getResidualSignatures();
 
 %% Select causality
-graphOver.causality = 'None'; % None, Integral, Differential, Mixed, Realistic
+graphOver.causality = 'Mixed'; % None, Integral, Differential, Mixed, Realistic
 
 % return
 
@@ -201,8 +203,14 @@ for indexMTES = 1:length(MTESs)
         SMjust = MSOcurr(setdiff(1:length(MSOcurr),i));
         SMjustIds = graphMTES.equationIdArray(SMjust);
 
-        % Find a valid matching for that M0
-        [Mcurr] = graphMTES.matchValid(SMjustIds);
+        % Find a valid matching for that M0        
+        A = graphMTES.getSubmodel(SMjustIds);
+        if (size(A,1)~=size(A,2))
+            warning('Tried to match a non-square system')
+            Mcurr = {};
+        else
+            [Mcurr] = graphMTES.matchValid(SMjustIds);
+        end
         
         % TODO: compare weights from all MCurrs
         if ~isempty(Mcurr)
@@ -226,13 +234,15 @@ if ~exist('Mvalid')
     load Mvalid
 end
 
+% return
+
 %% Validate matching results
 validMatchings = zeros(1,length(Mvalid));
 for i = 1:length(Mvalid)
     validMatchings(i) = graphMTES.validateMatching(Mvalid{i}{2:end});
 end
 
-return
+% return
 
 %% Check if different MSOs match the same equation is different ways
 % In general they do
@@ -387,9 +397,9 @@ for i=resSelected
 %         fprintf('Found an MSO generator\n');
 %         edgeIds = MvalidFlat{i-length(generator_id)}{2};
 %     end
-    
-    fprintf('Residual from %s with ID %d:\n',graphOver.getAliasById(generatorId),generatorId);
-    graphOver.printEdges(matching);
+    tempAlias = graphOver.getAliasById(generatorId);
+    fprintf('Residual from %s with ID %d:\n', tempAlias{:} ,generatorId);
+    graphOver.printEdges(matching, true);
 end
 
 % return

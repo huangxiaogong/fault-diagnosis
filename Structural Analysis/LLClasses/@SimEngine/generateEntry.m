@@ -19,12 +19,16 @@ equAlias = eh.gh.getAliasById(equId);
 varIds = eh.gh.getVariables(equId);
 numVars = length(varIds);
 otherVars = setdiff(varIds,varId);
-varNames = eh.gh.getAliasById(otherVars);
-
-if length(varNames)>1
-    s = [s sprintf('%s,',varNames{1:end-1})];
+if isempty(otherVars)
+    varNames = {};
+else
+    varNames = eh.gh.getAliasById(otherVars);if length(varNames)>1
+        s = [s sprintf('%s,',varNames{1:end-1})];
+    end
+    s = [s sprintf('%s', varNames{end})];
 end
-s = [s sprintf('%s', varNames{end})];
+
+
 s = [s sprintf(')\n')];
 fprintf(fileID,s);
 

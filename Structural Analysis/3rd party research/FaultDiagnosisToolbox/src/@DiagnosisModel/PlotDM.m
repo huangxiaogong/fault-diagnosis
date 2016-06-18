@@ -204,8 +204,10 @@ function [p,q,P]=PlotDM( model, varargin )
   
   set( gca, 'YTick', 1:length(dm.rowp));
   set( gca, 'XTick', 1:length(dm.colp));
-  set( gca, 'YTickLabel', model.e(opts.submodel(dm.rowp)), 'TickLabelInterpreter', 'none');
-  set( gca, 'XTickLabel', model.x(dm.colp), 'TickLabelInterpreter', 'none');
+%   set( gca, 'YTickLabel', model.e(opts.submodel(dm.rowp)), 'TickLabelInterpreter', 'none');
+  set( gca, 'YTickLabel', model.e(opts.submodel(dm.rowp)));
+%   set( gca, 'XTickLabel', model.x(dm.colp), 'TickLabelInterpreter', 'none');
+  set( gca, 'XTickLabel', model.x(dm.colp));
 
   if nargout > 0
     p = dm.rowp;
