@@ -1,0 +1,275 @@
+digraph G {
+rankdir = LR;
+size ="8.5"
+node [shape = box, fillcolor = white, style = filled, label="keq1
+1"]; keq1;
+node [shape = box, fillcolor = white, style = filled, label="keq2
+16"]; keq2;
+node [shape = box, fillcolor = white, style = filled, label="keq3
+25"]; keq3;
+node [shape = box, fillcolor = white, style = filled, label="keq12
+111"]; keq12;
+node [shape = box, fillcolor = white, style = filled, label="keq13
+122"]; keq13;
+node [shape = box, fillcolor = white, style = filled, label="keq14
+132"]; keq14;
+node [shape = box, fillcolor = white, style = filled, label="keq17
+154"]; keq17;
+node [shape = box, fillcolor = white, style = filled, label="keq19
+162"]; keq19;
+node [shape = box, fillcolor = white, style = filled, label="keq21
+173"]; keq21;
+node [shape = box, fillcolor = white, style = filled, label="feq1
+207"]; feq1;
+node [shape = box, fillcolor = white, style = filled, label="feq2
+215"]; feq2;
+node [shape = box, fillcolor = white, style = filled, label="feq3
+223"]; feq3;
+node [shape = box, fillcolor = white, style = filled, label="feq7
+249"]; feq7;
+node [shape = box, fillcolor = white, style = filled, label="feq8
+255"]; feq8;
+node [shape = box, fillcolor = white, style = filled, label="feq9
+261"]; feq9;
+node [shape = box, fillcolor = white, style = filled, label="deq10
+548"]; deq10;
+node [shape = box, fillcolor = white, style = filled, label="deq11
+551"]; deq11;
+node [shape = box, fillcolor = white, style = filled, label="deq12
+554"]; deq12;
+node [shape = box, fillcolor = white, style = filled, label="seq1
+593"]; seq1;
+node [shape = box, fillcolor = white, style = filled, label="seq2
+600"]; seq2;
+node [shape = box, fillcolor = white, style = filled, label="seq3
+608"]; seq3;
+node [shape = circle, fillcolor = lightblue, style = filled, label="Dnorth
+2"]; Dnorth;
+node [shape = circle, fillcolor = lightblue, style = filled, label="phi
+4"]; phi;
+node [shape = circle, fillcolor = lightblue, style = filled, label="theta
+6"]; theta;
+node [shape = circle, fillcolor = lightblue, style = filled, label="psi
+8"]; psi;
+node [shape = circle, fillcolor = white, style = filled, label="u
+10"]; u;
+node [shape = circle, fillcolor = white, style = filled, label="v
+12"]; v;
+node [shape = circle, fillcolor = white, style = filled, label="w
+14"]; w;
+node [shape = circle, fillcolor = lightblue, style = filled, label="Deast
+17"]; Deast;
+node [shape = circle, fillcolor = lightblue, style = filled, label="Ddown
+26"]; Ddown;
+node [shape = circle, fillcolor = lightblue, style = filled, label="p
+44"]; p;
+node [shape = circle, fillcolor = lightblue, style = filled, label="q
+46"]; q;
+node [shape = circle, fillcolor = lightblue, style = filled, label="r
+48"]; r;
+node [shape = circle, fillcolor = white, style = filled, label="Du
+112"]; Du;
+node [shape = circle, fillcolor = white, style = filled, label="Fx
+118"]; Fx;
+node [shape = circle, fillcolor = white, style = filled, label="m
+120"]; m;
+node [shape = circle, fillcolor = white, style = filled, label="Dv
+123"]; Dv;
+node [shape = circle, fillcolor = white, style = filled, label="Fy
+129"]; Fy;
+node [shape = circle, fillcolor = white, style = filled, label="Dw
+133"]; Dw;
+node [shape = circle, fillcolor = white, style = filled, label="Fz
+139"]; Fz;
+node [shape = circle, fillcolor = white, style = filled, label="ur
+143"]; ur;
+node [shape = circle, fillcolor = lightblue, style = filled, label="vr
+149"]; vr;
+node [shape = circle, fillcolor = white, style = filled, label="wr
+155"]; wr;
+node [shape = circle, fillcolor = lightblue, style = filled, label="ww
+158"]; ww;
+node [shape = circle, fillcolor = lightblue, style = filled, label="alpha
+163"]; alpha;
+node [shape = circle, fillcolor = lightblue, style = filled, label="Va
+171"]; Va;
+node [shape = circle, fillcolor = white, style = filled, label="Fgx
+209"]; Fgx;
+node [shape = circle, fillcolor = lightblue, style = filled, label="Fax
+211"]; Fax;
+node [shape = circle, fillcolor = lightblue, style = filled, label="Ftx
+213"]; Ftx;
+node [shape = circle, fillcolor = white, style = filled, label="Fgy
+217"]; Fgy;
+node [shape = circle, fillcolor = lightblue, style = filled, label="Fay
+219"]; Fay;
+node [shape = circle, fillcolor = lightblue, style = filled, label="Fty
+221"]; Fty;
+node [shape = circle, fillcolor = white, style = filled, label="Fgz
+225"]; Fgz;
+node [shape = circle, fillcolor = lightblue, style = filled, label="Faz
+227"]; Faz;
+node [shape = circle, fillcolor = lightblue, style = filled, label="Ftz
+229"]; Ftz;
+node [shape = circle, fillcolor = lightblue, style = filled, label="g
+253"]; g;
+node [shape = circle, fillcolor = yellow, style = filled, label="amx
+594"]; amx;
+node [shape = circle, fillcolor = yellow, style = filled, label="amy
+601"]; amy;
+node [shape = circle, fillcolor = yellow, style = filled, label="amz
+609"]; amz;
+Dnorth -> keq1 [penwidth = 1];
+phi -> keq1 [penwidth = 1];
+theta -> keq1 [penwidth = 1];
+psi -> keq1 [penwidth = 1];
+keq1 -> u [penwidth = 1];
+u -> keq1 [penwidth = 1];
+keq1 -> v [penwidth = 1];
+v -> keq1 [penwidth = 1];
+keq1 -> w [penwidth = 1];
+w -> keq1 [penwidth = 1];
+Deast -> keq2 [penwidth = 1];
+phi -> keq2 [penwidth = 1];
+theta -> keq2 [penwidth = 1];
+psi -> keq2 [penwidth = 1];
+keq2 -> u [penwidth = 1];
+u -> keq2 [penwidth = 1];
+keq2 -> v [penwidth = 1];
+v -> keq2 [penwidth = 1];
+keq2 -> w [penwidth = 1];
+w -> keq2 [penwidth = 1];
+Ddown -> keq3 [penwidth = 1];
+phi -> keq3 [penwidth = 1];
+theta -> keq3 [penwidth = 1];
+psi -> keq3 [penwidth = 1];
+keq3 -> u [penwidth = 1];
+u -> keq3 [penwidth = 1];
+keq3 -> v [penwidth = 1];
+v -> keq3 [penwidth = 1];
+keq3 -> w [penwidth = 1];
+w -> keq3 [penwidth = 1];
+keq12 -> Du [penwidth = 1];
+Du -> keq12 [penwidth = 1];
+keq12 -> v [penwidth = 1];
+v -> keq12 [penwidth = 1];
+keq12 -> w [penwidth = 1];
+w -> keq12 [penwidth = 1];
+r -> keq12 [penwidth = 1];
+q -> keq12 [penwidth = 1];
+keq12 -> Fx [penwidth = 1];
+Fx -> keq12 [penwidth = 1];
+keq12 -> m [penwidth = 1];
+m -> keq12 [penwidth = 1];
+keq13 -> Dv [penwidth = 1];
+Dv -> keq13 [penwidth = 1];
+keq13 -> u [penwidth = 1];
+u -> keq13 [penwidth = 1];
+keq13 -> w [penwidth = 1];
+w -> keq13 [penwidth = 1];
+p -> keq13 [penwidth = 1];
+r -> keq13 [penwidth = 1];
+keq13 -> Fy [penwidth = 1];
+Fy -> keq13 [penwidth = 1];
+keq13 -> m [penwidth = 1];
+m -> keq13 [penwidth = 1];
+keq14 -> Dw [penwidth = 1];
+Dw -> keq14 [penwidth = 1];
+keq14 -> u [penwidth = 1];
+u -> keq14 [penwidth = 1];
+keq14 -> v [penwidth = 1];
+v -> keq14 [penwidth = 1];
+p -> keq14 [penwidth = 1];
+q -> keq14 [penwidth = 1];
+keq14 -> Fz [penwidth = 1];
+Fz -> keq14 [penwidth = 1];
+keq14 -> m [penwidth = 1];
+m -> keq14 [penwidth = 1];
+keq17 -> wr [penwidth = 1];
+wr -> keq17 [penwidth = 1];
+keq17 -> w [penwidth = 1];
+w -> keq17 [penwidth = 1];
+ww -> keq17 [penwidth = 1];
+alpha -> keq19 [penwidth = 1];
+keq19 -> wr [penwidth = 1];
+wr -> keq19 [penwidth = 1];
+keq19 -> ur [penwidth = 1];
+ur -> keq19 [penwidth = 1];
+Va -> keq21 [penwidth = 1];
+ur -> keq21 [penwidth = 1];
+vr -> keq21 [penwidth = 1];
+wr -> keq21 [penwidth = 1];
+feq1 -> Fx [penwidth = 1];
+Fx -> feq1 [penwidth = 1];
+feq1 -> Fgx [penwidth = 1];
+Fgx -> feq1 [penwidth = 1];
+Fax -> feq1 [penwidth = 1];
+Ftx -> feq1 [penwidth = 1];
+feq2 -> Fy [penwidth = 1];
+Fy -> feq2 [penwidth = 1];
+feq2 -> Fgy [penwidth = 1];
+Fgy -> feq2 [penwidth = 1];
+Fay -> feq2 [penwidth = 1];
+Fty -> feq2 [penwidth = 1];
+feq3 -> Fz [penwidth = 1];
+Fz -> feq3 [penwidth = 1];
+feq3 -> Fgz [penwidth = 1];
+Fgz -> feq3 [penwidth = 1];
+Faz -> feq3 [penwidth = 1];
+Ftz -> feq3 [penwidth = 1];
+feq7 -> Fgx [penwidth = 1];
+Fgx -> feq7 [penwidth = 1];
+theta -> feq7 [penwidth = 1];
+feq7 -> m [penwidth = 1];
+m -> feq7 [penwidth = 1];
+g -> feq7 [penwidth = 1];
+feq8 -> Fgy [penwidth = 1];
+Fgy -> feq8 [penwidth = 1];
+phi -> feq8 [penwidth = 1];
+theta -> feq8 [penwidth = 1];
+feq8 -> m [penwidth = 1];
+m -> feq8 [penwidth = 1];
+g -> feq8 [penwidth = 1];
+feq9 -> Fgz [penwidth = 1];
+Fgz -> feq9 [penwidth = 1];
+phi -> feq9 [penwidth = 1];
+theta -> feq9 [penwidth = 1];
+feq9 -> m [penwidth = 1];
+m -> feq9 [penwidth = 1];
+g -> feq9 [penwidth = 1];
+deq10 -> Du [penwidth = 1];
+Du -> deq10 [penwidth = 1];
+deq10 -> u [penwidth = 1];
+u -> deq10 [penwidth = 1];
+deq11 -> Dv [penwidth = 1];
+Dv -> deq11 [penwidth = 1];
+deq11 -> v [penwidth = 1];
+v -> deq11 [penwidth = 1];
+deq12 -> Dw [penwidth = 1];
+Dw -> deq12 [penwidth = 1];
+deq12 -> w [penwidth = 1];
+w -> deq12 [penwidth = 1];
+amx -> seq1 [penwidth = 1];
+seq1 -> Fx [penwidth = 1];
+Fx -> seq1 [penwidth = 1];
+seq1 -> m [penwidth = 1];
+m -> seq1 [penwidth = 1];
+g -> seq1 [penwidth = 1];
+theta -> seq1 [penwidth = 1];
+amy -> seq2 [penwidth = 1];
+seq2 -> Fy [penwidth = 1];
+Fy -> seq2 [penwidth = 1];
+seq2 -> m [penwidth = 1];
+m -> seq2 [penwidth = 1];
+g -> seq2 [penwidth = 1];
+phi -> seq2 [penwidth = 1];
+theta -> seq2 [penwidth = 1];
+amz -> seq3 [penwidth = 1];
+seq3 -> Fz [penwidth = 1];
+Fz -> seq3 [penwidth = 1];
+seq3 -> m [penwidth = 1];
+m -> seq3 [penwidth = 1];
+g -> seq3 [penwidth = 1];
+phi -> seq3 [penwidth = 1];
+theta -> seq3 [penwidth = 1];
+}

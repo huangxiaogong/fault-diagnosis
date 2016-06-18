@@ -1,0 +1,81 @@
+keq1: Dnorth ni phi ni theta ni psi u v w
+keq2: Deast ni phi ni theta ni psi u v w
+keq3: Ddown ni phi ni theta ni psi u v w
+keq4: chi Deast Dnorth
+keq5: Dphi ni phi ni theta p q r
+keq6: Dtheta ni phi q r
+keq7: Dpsi ni phi ni theta q r
+keq12: Du v w r q Fx m
+keq13: Dv u w p r Fy m
+keq14: Dw u v p q Fz m
+keq17: wr w ww
+keq18: ww
+keq19: alpha wr ur
+keq20: beta ur Va
+feq1: Fx Fgx Fax Ftx
+feq2: Fy Fgy Fay Fty
+feq3: Fz Fgz Faz Ftz
+feq7: Fgx theta m g
+feq8: Fgy phi theta m g
+feq9: Fgz phi theta m g
+feq10: Fax ni alpha ni beta FD FY FL
+feq11: Fay ni beta FD FY
+feq12: Faz ni alpha ni beta FD FY FL
+feq16: qbar rho Va
+feq17: fault FD qbar CD
+feq18: fault FY qbar CY
+feq19: fault FL qbar CL
+feq23: fault CD ni Va ni alpha ni q inp deltae
+feq24: fault CY ni Va ni beta ni p ni r inp deltaa inp deltar
+feq25: fault CL ni Va ni alpha ni ni q inp deltae
+feq29: fault Fty
+feq30: fault Ftz
+feq39: fault Ftx CT rho n
+feq40: fault CT ni Jar
+feq41: Jar Va n
+feq42: fault Pp Cp rho n
+feq43: fault Cp ni Jar
+feq44: fault Dn Pe Pp n
+feq46: fault n Ei
+feq48: Pe Ei Ii
+feq49: fault Ii Iin Ei
+deq1: int Dnorth dot north
+deq2: int Deast dot east
+deq3: int Ddown dot down
+deq4: int Dphi dot phi
+deq5: int Dtheta dot theta
+deq6: int Dpsi dot psi
+deq10: int Du dot u
+deq11: int Dv dot v
+deq12: int Dw dot w
+deq13: int Dn dot n
+meq1: H down
+meq2: temp temp0 H H0
+meq4: rho P temp
+meq5: Pt P rho Va
+meq6: g msr g0
+seq1: fault msr amx Fx m g theta
+seq2: fault msr amy Fy m g phi theta
+seq3: fault msr amz Fz m g phi theta
+seq4: fault msr pm p
+seq5: fault msr qm q
+seq6: fault msr rm r
+seq10: fault msr phim phi
+seq11: fault msr thetam theta
+seq12: fault msr psim psi
+seq13: fault msr northm north
+seq14: fault msr eastm east
+seq15: fault msr downm down
+seq16: fault msr Dnorthm Dnorth
+seq17: fault msr Deastm Deast
+seq18: fault msr chim chi
+seq19: fault msr temp0m temp0
+seq20: fault msr H0m H0
+seq21: fault msr Pm P
+seq22: fault msr tempm temp
+seq23: fault msr Ptm Pt
+seq24: fault msr alpham alpha
+seq25: fault msr betam beta
+seq26: fault msr downml down
+seq28: fault msr Iom Iin
+seq29: fault msr nm n
